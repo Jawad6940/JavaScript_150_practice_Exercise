@@ -11,6 +11,9 @@ const container = document.querySelector(".container")
     div.addEventListener("mouseout" , ()=>{
         colorRemove(div);
     })
+    div.addEventListener("touchstart" , ()=>{
+        setColcor(div);
+    })
     div.addEventListener("touchmove" , ()=>{
         setColcor(div);
     })
