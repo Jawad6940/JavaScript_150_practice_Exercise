@@ -13,12 +13,15 @@ const container = document.querySelector(".container")
     })
     div.addEventListener("touchstart" , ()=>{
         setColcor(div);
+        console.log("Touch  start");
     })
     div.addEventListener("touchmove" , ()=>{
         setColcor(div);
+        console.log("moving");
     })
     div.addEventListener("touchend" , ()=>{
         colorRemove(div);
+        console.log("end");
     })
     container.appendChild(div);
    
