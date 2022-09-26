@@ -1,13 +1,19 @@
-let optionsButtons = document.querySelectorAll(".option-button");
+
 let btn = document.querySelector(".btn");
 let container = document.querySelector(".container");
+
 
 btn.addEventListener("click", ()=>{
   const div= document.createElement("div");
   div.innerHTML=`
+  
 <div id="text-input" contenteditable="true"></div>`
 container.appendChild(div);
 })
+let optionsButtons = document.querySelectorAll(".option-button");
+
+
+let text = document.getElementById("text-input");
 
 // let writingArea = document.getElementById("text-input");
 
@@ -22,6 +28,7 @@ const modifyText = (command, defaultUi, value) => {
 optionsButtons.forEach((button) => {
   button.addEventListener("click", () => {
     modifyText(button.id, false, null);
+   console.log("click");
   });
 });
 

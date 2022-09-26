@@ -3,30 +3,28 @@
     margin: 0;
     box-sizing: border-box;
   }
+
   body {
     background-color: #8758FF;
   }
   .nav{
     background-color: #181818;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: sticky;
     top: 0px;
     padding: 1rem;
   }
-  .btn{
-    width: 10%;
-    height: 20%;
-    margin: 1rem;
-    padding: .5rem;
-  }
+
+
   .container {
     background-color: #8758FF;
 
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    gap: 1.5rem;
+    gap: 2rem;
     margin: .5rem;
   }
   .options {
@@ -35,7 +33,7 @@
     align-items: center;
     gap: 15px;
   }
-  button {
+  .option-button {
     height: 28px;
     width: 28px;
     display: grid;
@@ -50,51 +48,64 @@
     background-color: #a89d9d;
   }
 
-  #text-input {
+  #note {
     background-color: #F2F2F2;
-    
-    margin: 10px ;
+    margin: .5rem ;
     height: 10vh;
-    width: 20vw;
-    min-width:20vw;
     border: 1px solid #dddddd;
     border-radius: .5rem;
-    padding: 20px;
+    padding: 1rem;
     transition: height ease 1s;
     cursor: pointer;
     overflow: hidden;
-    
+    width: 100%;
   }
-  #text-input:hover{
+  .container {
+    background-color: #8758FF;
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2rem;
+    margin: .5rem;
+  }
+  #note:hover{
     
-    height: 50vh;
+    height: 20vh;
     transition: height ease 1s;
   }
 
+  .edit{
+    background-color: #020929;
+    outline: none;
+    color: #F2F2F2;
+    margin: 10px;
+  }
+
+  
+  #addTxt{
+    background-color: #F2F2F2;
+    margin: .5rem;
+    padding: 1rem;
+    height: 50vh;
+    min-width: 80vw;
+    border: 1px solid #dddddd;
+    border-radius: .5rem;
+    overflow: hidden;
+    
+  }
+  .active{
+    height: 100vh;
+  }
 
   @media screen and (max-width: 475px) {
     .container {
-     
-    
+      background-color: #8758FF;
+      
       display: flex;
       flex-direction: column;
       
     }
-    #text-input{
-      margin: 0 auto;
-      width: 90%;
-      min-width:80vw;
-    }
+   
   }
 
-  @media screen and (max-width: 800px) {
-    .container {
-    
-      gap: .5rem;
-      grid-template-columns: repeat(2,1fr);
-      
-    }
-    #text-input{
-      width: 40vw;
-    }
-  }
+ 
