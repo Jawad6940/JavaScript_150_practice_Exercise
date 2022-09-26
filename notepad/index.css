@@ -15,12 +15,7 @@
     top: 0px;
     padding: 1rem;
   }
-  .btn{
-    height: 35px;
-    width: 35px;
-   
-    
-  }
+
   .container {
     background-color: #8758FF;
 
@@ -48,6 +43,9 @@
   }
   button:hover{
     background-color: #a89d9d;
+  }
+  [contentEditable=true]:empty:not(:focus):before {
+    content: attr(data-text)
   }
 
   #text-input {
