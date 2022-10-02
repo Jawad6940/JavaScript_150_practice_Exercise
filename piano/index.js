@@ -13,7 +13,7 @@ function start() {
   canvas.height = $(window).height() - 50;
 }
   else{
-    canvas.width = $(window).width()/2+100;
+    canvas.width = $(window).width()-50;
   canvas.height = $(window).height() - 50;
 }
   
