@@ -1,5 +1,5 @@
 //variable
-let canvas, ctx, CANVAS_WIDTH, CANVAS_HEIGHT,tilesArray;
+let canvas, ctx, CANVAS_WIDTH, CANVAS_HEIGHT,tilesArray,singleTileWidth;
 
 let AlphaKeys = ["A", "S", "D", "F"];
 let keysArray = [65, 83, 68, 70];
@@ -13,16 +13,19 @@ function start() {
   canvas.height = $(window).height() - 100;
   CANVAS_WIDTH = canvas.width;
   CANVAS_HEIGHT = canvas.height;
+  singleTileWidth=CANVAS_WIDTH/4;
   ctx.fillStyle = 0000;
   //tile creating
   tilesArray=[];
   for (let i = 0; i < 4; i++) {
-    tilesArray.push(Math.floor(Math.random() * 4))
+    let randomIndex= Math.floor(Math.random() * 4);
+    tilesArray.push([randomIndex,CANVAS_WIDTH-((randomIndex * CANVAS_WIDTH) / 4)])
     
   }
+ 
   //color filling
   for (let i = 0; i < 4; i++) {
-    blacktile.draw(tilesArray[i], i);
+    blacktile.draw(tilesArray[i][0], i);
     
   }
   
@@ -77,22 +80,34 @@ function keyboardControl(e){
 
 let keyIndex = keysArray.indexOf(e.keyCode);
 
-if(tilesArray[tilesArray.length-1]==keyIndex){
+if(tilesArray[tilesArray.length-1][0]==keyIndex){
   //re rendering
-  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  tilesArray.unshift(Math.floor(Math.random() * 4));
-  tilesArray.pop();
-  drawlines();
-  for (let i = 0; i < 4; i++) {
-    blacktile.draw(tilesArray[i], i);
-    
-  }
+   reRenderWindow();
 }
+
+
 
 }
 function mouseControl(e){
-
+  let LastTileX = tilesArray[tilesArray.length - 1][1];
+  LastTileX=(CANVAS_WIDTH)-LastTileX;
+  // console.log(LastTileX+"\n"+ e.layerX);
+  if (e.layerX < LastTileX + singleTileWidth && e.layerX > LastTileX){
+    reRenderWindow(); 
+    
+  }
+    
 }
-
+function reRenderWindow(){
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  let randomIndex= Math.floor(Math.random() * 4);
+    tilesArray.unshift([randomIndex,CANVAS_WIDTH-((randomIndex * CANVAS_WIDTH) / 4)])
+  tilesArray.pop();
+  drawlines();
+  for (let i = 0; i < 4; i++) {
+    blacktile.draw(tilesArray[i][0], i);
+    
+  } 
+}
 window.addEventListener("DOMContentLoaded", start);
 
