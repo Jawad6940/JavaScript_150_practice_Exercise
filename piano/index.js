@@ -7,10 +7,10 @@ let keysArray = [65, 83, 68, 70];
 function start() {
   canvas = document.getElementById("game");
   ctx = canvas.getContext("2d");
-  ctx.textAlign = "center";
+
   
   canvas.width = $(window).width() / 3;
-  canvas.height = $(window).height() - 100;
+  canvas.height = $(window).height() - 50;
   CANVAS_WIDTH = canvas.width;
   CANVAS_HEIGHT = canvas.height;
   singleTileWidth=CANVAS_WIDTH/4;
@@ -51,10 +51,11 @@ let blacktile = {
     );
     ctx.fillStyle = "#fff";
     ctx.font = "700 30px 'sans-serif";
+    ctx.textAlign = "center";
     ctx.fillText(
       AlphaKeys[width],
-      width * (CANVAS_WIDTH / 4) + 47,
-      height * (CANVAS_HEIGHT / 4) + 85
+      width * (CANVAS_WIDTH / 4) +singleTileWidth/2,
+      height * (CANVAS_HEIGHT / 4) + CANVAS_HEIGHT / 8
     );
   },
  
@@ -109,6 +110,8 @@ function reRenderWindow(){
     
   } 
 }
+
+window.addEventListener("resize",start)
 
 window.addEventListener("DOMContentLoaded", start);
 
