@@ -8,9 +8,15 @@ function start() {
   canvas = document.getElementById("game");
   ctx = canvas.getContext("2d");
 
-  
+  if($(window).width()>475){
   canvas.width = $(window).width() / 3;
   canvas.height = $(window).height() - 50;
+}
+  else{
+    canvas.width = $(window).width()/2+100;
+  canvas.height = $(window).height() - 50;
+}
+  
   CANVAS_WIDTH = canvas.width;
   CANVAS_HEIGHT = canvas.height;
   singleTileWidth=CANVAS_WIDTH/4;
